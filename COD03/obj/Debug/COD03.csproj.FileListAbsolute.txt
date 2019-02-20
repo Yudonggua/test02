@@ -1,0 +1,39 @@
+C:\Users\Donggua\Desktop\02 SoftwareDesign\Data\CO02\COD03\bin\Debug\COD03.exe.config
+C:\Users\Donggua\Desktop\02 SoftwareDesign\Data\CO02\COD03\bin\Debug\TestDB.mdf
+C:\Users\Donggua\Desktop\02 SoftwareDesign\Data\CO02\COD03\bin\Debug\TestDB_log.ldf
+C:\Users\Donggua\Desktop\02 SoftwareDesign\Data\CO02\COD03\bin\Debug\COD03.exe
+C:\Users\Donggua\Desktop\02 SoftwareDesign\Data\CO02\COD03\bin\Debug\COD03.pdb
+C:\Users\Donggua\Desktop\02 SoftwareDesign\Data\CO02\COD03\obj\Debug\COD03.csprojResolveAssemblyReference.cache
+C:\Users\Donggua\Desktop\02 SoftwareDesign\Data\CO02\COD03\obj\Debug\COD03.Form1.resources
+C:\Users\Donggua\Desktop\02 SoftwareDesign\Data\CO02\COD03\obj\Debug\COD03.Form2.resources
+C:\Users\Donggua\Desktop\02 SoftwareDesign\Data\CO02\COD03\obj\Debug\COD03.Properties.Resources.resources
+C:\Users\Donggua\Desktop\02 SoftwareDesign\Data\CO02\COD03\obj\Debug\COD03.csproj.GenerateResource.Cache
+C:\Users\Donggua\Desktop\02 SoftwareDesign\Data\CO02\COD03\obj\Debug\COD03.exe
+C:\Users\Donggua\Desktop\02 SoftwareDesign\Data\CO02\COD03\obj\Debug\COD03.pdb
+C:\Users\azspe\Desktop\test02\COD03\bin\Debug\COD03.exe.config
+C:\Users\azspe\Desktop\test02\COD03\obj\Debug\COD03.exe
+C:\Users\azspe\Desktop\test02\COD03\obj\Debug\COD03.pdb
+C:\Users\azspe\Desktop\test02\COD03\obj\Debug\COD03.csprojResolveAssemblyReference.cache
+C:\Users\azspe\Desktop\test02\COD03\obj\Debug\COD03.Form1.resources
+C:\Users\azspe\Desktop\test02\COD03\obj\Debug\COD03.Form2.resources
+C:\Users\azspe\Desktop\test02\COD03\obj\Debug\COD03.Properties.Resources.resources
+C:\Users\azspe\Desktop\test02\COD03\obj\Debug\COD03.csproj.GenerateResource.Cache
+C:\Users\azspe\Desktop\test02\COD03\bin\Debug\TestDB.mdf
+C:\Users\azspe\Desktop\test02\COD03\bin\Debug\TestDB_log.ldf
+C:\Users\azspe\Desktop\test02\COD03\bin\Debug\COD03.exe
+C:\Users\azspe\Desktop\test02\COD03\bin\Debug\COD03.pdb
+C:\Users\Donggua\Desktop\test02-master\COD03\bin\Debug\COD03.exe.config
+C:\Users\Donggua\Desktop\test02-master\COD03\obj\Debug\COD03.exe
+C:\Users\Donggua\Desktop\test02-master\COD03\obj\Debug\COD03.pdb
+C:\Users\Donggua\Desktop\test02-master\COD03\bin\Debug\TestDB.mdf
+C:\Users\Donggua\Desktop\test02-master\COD03\bin\Debug\TestDB_log.ldf
+C:\Users\Donggua\Desktop\test02-master\COD03\bin\Debug\COD03.exe
+C:\Users\Donggua\Desktop\test02-master\COD03\bin\Debug\COD03.pdb
+C:\Users\Donggua\Desktop\test02-master\COD03\obj\Debug\COD03.csprojResolveAssemblyReference.cache
+C:\Users\Donggua\Desktop\test02-master\COD03\obj\Debug\COD03.Form1.resources
+C:\Users\Donggua\Desktop\test02-master\COD03\obj\Debug\COD03.Form2.resources
+C:\Users\Donggua\Desktop\test02-master\COD03\obj\Debug\COD03.Properties.Resources.resources
+C:\Users\Donggua\Desktop\test02-master\COD03\obj\Debug\COD03.csproj.GenerateResource.Cache
+C:\Users\Donggua\Desktop\test02\COD03\bin\Debug\COD03.exe.config
+C:\Users\Donggua\Desktop\test02\COD03\obj\Debug\COD03.exe
+C:\Users\Donggua\Desktop\test02\COD03\obj\Debug\COD03.pdb
