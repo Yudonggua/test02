@@ -17,7 +17,6 @@ namespace COD03 {
 
 
         private void Form1_Load(object sender, EventArgs e) {
-            SqlConnection cn = new SqlConnection();
             da.Fill(dt);
             hScrollBar1.Maximum = dt.Rows.Count - 1;
 
@@ -28,10 +27,10 @@ namespace COD03 {
         DataTable dt = new DataTable();
         String sql;
         //@防止後面的'/'變成轉義字元
-        public static String con = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename='C:\Users\Donggua\Desktop\test02\COD03\TestDB.mdf';Integrated Security = True";
+        public static String con = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename='C:\Users\azspe\Desktop\test02\COD03\TestDB.mdf';Integrated Security=True";
         SqlConnection cn = new SqlConnection(con);
         SqlCommand cmd;
-        SqlDataAdapter da = new SqlDataAdapter("Select * from Salary", con);
+        SqlDataAdapter da = new SqlDataAdapter("Select * from Salary WHERE enable = 'True'", con);
 
         private void btnClean_Click(object sender, EventArgs e) {
 
@@ -76,7 +75,7 @@ namespace COD03 {
                 + ( int.Parse(txtBasesalary.Text) + int.Parse(txtBonus.Text) - int.Parse(txtDeduct.Text) ) + "','" + pictureBox1.ImageLocation + "')";
 
                 Edit(sql);
-                da = new SqlDataAdapter("Select * from Salary", con);
+                da = new SqlDataAdapter("Select * from Salary WHERE enable = 'True'", con);
                 da.Fill(dt);
                 hScrollBar1.Maximum = dt.Rows.Count - 1;
             }
@@ -144,14 +143,16 @@ namespace COD03 {
                 "',subtotal ='" + ( int.Parse(txtBasesalary.Text) + int.Parse(txtBonus.Text) - int.Parse(txtDeduct.Text) ) + "',picture='" + pictureBox1.ImageLocation + "'" +
                 "WHERE Id = '" + txtId.Text + "'";
             Edit(sql);
-            da = new SqlDataAdapter("Select * from Salary", con);
+            da = new SqlDataAdapter("Select * from Salary WHERE enable = 'True'", con);
             da.Fill(dt);
 
         }
 
         private void btnDelete_Click(object sender, EventArgs e) {
             //TODO 刪除資料
-            da = new SqlDataAdapter("Select * from Salary", con);
+            sql = "UPDATE [Salary] SET enable ='0' WHERE Id ='" + txtId.Text + "'";
+            Edit(sql);
+            da = new SqlDataAdapter("Select * from Salary WHERE enable = 'True'", con);
             da.Fill(dt);
             hScrollBar1.Maximum = dt.Rows.Count - 1;
         }
@@ -162,6 +163,7 @@ namespace COD03 {
         }
    
         private void pictureBox1_Click(object sender, EventArgs e) {
+
             OpenFileDialog openFileDialog = new OpenFileDialog();
             if (openFileDialog.ShowDialog() == DialogResult.OK) {
                 pictureBox1.Image = Image.FromFile(openFileDialog.FileName);
@@ -170,6 +172,7 @@ namespace COD03 {
         }
 
         private void hScrollBar1_Scroll(object sender, ScrollEventArgs e) {
+
             int num = hScrollBar1.Value;
             lblCount.Text = ( num + 1 ).ToString() + "/" + ( hScrollBar1.Maximum + 1 ).ToString();
             txtId.Text = dt.Rows[num][0].ToString();
@@ -177,7 +180,6 @@ namespace COD03 {
             txtBasesalary.Text = dt.Rows[num][2].ToString();
             txtBonus.Text = dt.Rows[num][3].ToString();
             txtDeduct.Text = dt.Rows[num][4].ToString();
-
 
         }
     }
