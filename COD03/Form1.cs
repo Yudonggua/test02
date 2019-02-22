@@ -18,19 +18,20 @@ namespace COD03 {
 
         private void Form1_Load(object sender, EventArgs e) {
             SqlConnection cn = new SqlConnection();
+            da.Fill(dt);
+            hScrollBar1.Maximum = dt.Rows.Count - 1;
+
             //TODO 完成連線字串，開啟資料庫，並進行資料錄設定
 
         }
-        //@防止後面的'/'變成轉義字元
-        DataTable dt = new DataTable();
 
-        public static String con = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|datadirectory|TestDB.mdf;Integrated Security=True;Connect Timeout=30";
+        DataTable dt = new DataTable();
+        String sql;
+        //@防止後面的'/'變成轉義字元
+        public static String con = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename='C:\Users\Donggua\Desktop\test02\COD03\TestDB.mdf';Integrated Security = True";
         SqlConnection cn = new SqlConnection(con);
         SqlCommand cmd;
-        SqlDataReader read;
-        String sql;
         SqlDataAdapter da = new SqlDataAdapter("Select * from Salary", con);
-
 
         private void btnClean_Click(object sender, EventArgs e) {
 
@@ -43,9 +44,13 @@ namespace COD03 {
         }
 
         void Edit(string sqlstr) {
-            cmd = new SqlCommand(sqlstr, cn);
-            //TODO 完成連線字串，開啟資料庫，執行傳入的SQL指令
 
+            cmd = new SqlCommand(sqlstr, cn);
+            cn.Open();
+            cmd.ExecuteNonQuery();
+            cn.Close();
+            //TODO 完成連線字串，開啟資料庫，執行傳入的SQL指令
+            da.Fill(dt);
         }
 
 
@@ -61,22 +66,25 @@ namespace COD03 {
                 MessageBox.Show("Id格式錯誤");
             } else if (readtxtid.Length != 6) {
                 MessageBox.Show("Id格式錯誤");
-            } else if (boo_confirm = false) {
+            } else if (boo_confirm == false) {
                 MessageBox.Show("Id格式錯誤");
             } else if (boo2 == false) {
                 MessageBox.Show("Id格式錯誤");
             } else {
-                sql = @"INSERT INTO SALARY (Id,name,basesalary,bonus,deduct,subtotal,status,picture)" +
-                "VALUES (" + txtId.Text + "," + txtName.Text + "," + txtBasesalary.Text + "," + txtBonus.Text + "," + txtDeduct.Text + ","
-                + ( int.Parse(txtBasesalary.Text) + int.Parse(txtBonus.Text) - int.Parse(txtDeduct.Text) ) + ",NULL ," + txtName + ")";
+                sql = "INSERT INTO [Salary] (Id,name,basesalary,bonus,deduct,subtotal,picture)" +
+                "VALUES ('" + txtId.Text + "','" + txtName.Text + "','" + txtBasesalary.Text + "','" + txtBonus.Text + "','" + txtDeduct.Text + "','"
+                + ( int.Parse(txtBasesalary.Text) + int.Parse(txtBonus.Text) - int.Parse(txtDeduct.Text) ) + "','" + pictureBox1.ImageLocation + "')";
+
                 Edit(sql);
+                da = new SqlDataAdapter("Select * from Salary", con);
+                da.Fill(dt);
+                hScrollBar1.Maximum = dt.Rows.Count - 1;
             }
 
 
         }
 
         private bool confirm(String text) {
-            bool boo = true;
             int total = 0;
             int ten_digits = 0;
 
@@ -101,11 +109,8 @@ namespace COD03 {
                     break;
             }
 
-            int k = 0;
             for (int i = 1; i < 5; i++) {
-                k = int.Parse(text.Substring(i, 1));
-                k = k * ( i + 1 );
-                total += k;
+                total += int.Parse(text.Substring(i, 1))*(i+1);     
             }
 
             ten_digits = total / 10;
@@ -122,7 +127,6 @@ namespace COD03 {
         private bool id_contains(String id) {
 
             da.Fill(dt);
-            txtId.Text = dt.Rows[1][0].ToString();
 
             for (int i = 0; i < dt.Rows.Count; i++) {
                 if (dt.Rows[i][0].ToString().Contains(id)) {
@@ -136,32 +140,45 @@ namespace COD03 {
 
         private void btnUpdate_Click(object sender, EventArgs e) {
             //TODO 更新資料
-
-
-
-
+            sql = "UPDATE [Salary] SET name ='" + txtName.Text + "',basesalary ='" + txtBasesalary.Text + "',bonus='" + txtBonus.Text + "',deduct='" + txtDeduct.Text +
+                "',subtotal ='" + ( int.Parse(txtBasesalary.Text) + int.Parse(txtBonus.Text) - int.Parse(txtDeduct.Text) ) + "',picture='" + pictureBox1.ImageLocation + "'" +
+                "WHERE Id = '" + txtId.Text + "'";
+            Edit(sql);
+            da = new SqlDataAdapter("Select * from Salary", con);
+            da.Fill(dt);
 
         }
 
         private void btnDelete_Click(object sender, EventArgs e) {
             //TODO 刪除資料
-
-
-
-
-
+            da = new SqlDataAdapter("Select * from Salary", con);
+            da.Fill(dt);
+            hScrollBar1.Maximum = dt.Rows.Count - 1;
         }
 
         private void btnShow_Click(object sender, EventArgs e) {
+
             //TODO 開啟Form2表單
         }
-
+   
         private void pictureBox1_Click(object sender, EventArgs e) {
             OpenFileDialog openFileDialog = new OpenFileDialog();
             if (openFileDialog.ShowDialog() == DialogResult.OK) {
                 pictureBox1.Image = Image.FromFile(openFileDialog.FileName);
             }
             pictureBox1.ImageLocation = openFileDialog.FileName;
+        }
+
+        private void hScrollBar1_Scroll(object sender, ScrollEventArgs e) {
+            int num = hScrollBar1.Value;
+            lblCount.Text = ( num + 1 ).ToString() + "/" + ( hScrollBar1.Maximum + 1 ).ToString();
+            txtId.Text = dt.Rows[num][0].ToString();
+            txtName.Text = dt.Rows[num][1].ToString();
+            txtBasesalary.Text = dt.Rows[num][2].ToString();
+            txtBonus.Text = dt.Rows[num][3].ToString();
+            txtDeduct.Text = dt.Rows[num][4].ToString();
+
+
         }
     }
 }

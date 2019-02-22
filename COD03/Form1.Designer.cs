@@ -47,6 +47,7 @@
             this.btnClean = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -145,7 +146,7 @@
             // btnAdd
             // 
             this.btnAdd.Font = new System.Drawing.Font("新細明體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.btnAdd.Location = new System.Drawing.Point(161, 163);
+            this.btnAdd.Location = new System.Drawing.Point(122, 161);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(56, 23);
             this.btnAdd.TabIndex = 6;
@@ -156,7 +157,7 @@
             // btnUpdate
             // 
             this.btnUpdate.Font = new System.Drawing.Font("新細明體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.btnUpdate.Location = new System.Drawing.Point(249, 163);
+            this.btnUpdate.Location = new System.Drawing.Point(210, 161);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(56, 23);
             this.btnUpdate.TabIndex = 7;
@@ -167,7 +168,7 @@
             // btnDelete
             // 
             this.btnDelete.Font = new System.Drawing.Font("新細明體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.btnDelete.Location = new System.Drawing.Point(341, 163);
+            this.btnDelete.Location = new System.Drawing.Point(302, 161);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(56, 23);
             this.btnDelete.TabIndex = 8;
@@ -203,11 +204,12 @@
             this.hScrollBar1.Name = "hScrollBar1";
             this.hScrollBar1.Size = new System.Drawing.Size(168, 17);
             this.hScrollBar1.TabIndex = 4;
+            this.hScrollBar1.Scroll += new System.Windows.Forms.ScrollEventHandler(this.hScrollBar1_Scroll);
             // 
             // btnClean
             // 
             this.btnClean.Font = new System.Drawing.Font("新細明體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.btnClean.Location = new System.Drawing.Point(70, 163);
+            this.btnClean.Location = new System.Drawing.Point(31, 161);
             this.btnClean.Name = "btnClean";
             this.btnClean.Size = new System.Drawing.Size(56, 23);
             this.btnClean.TabIndex = 5;
@@ -230,15 +232,26 @@
             this.pictureBox1.Location = new System.Drawing.Point(342, 10);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(83, 98);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 10;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(284, 68);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(41, 15);
+            this.label6.TabIndex = 11;
+            this.label6.Text = "label6";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(442, 237);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.hScrollBar1);
             this.Controls.Add(this.lblCount);
@@ -290,6 +303,7 @@
         private System.Windows.Forms.Button btnClean;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label6;
     }
 }
 
